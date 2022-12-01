@@ -4,7 +4,7 @@ import Tabs from './Components/Tabs'
 
 function App() {
   return (
-    <div className="">
+    <div className="bg-blue-50 h-full min-h-screen">
       <Tabs />
     </div>   
   )
