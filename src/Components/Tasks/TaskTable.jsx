@@ -59,7 +59,6 @@ const TaskTable = () => {
                             task={task}
                         />
                     ))}
-                    
                 </TableBody>
                 </Table>
             </Card>
