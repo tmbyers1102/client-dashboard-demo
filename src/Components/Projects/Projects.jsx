@@ -1,10 +1,11 @@
-import React from 'react';
-import PulseRowComponent from '../Objects/Animations/PulseRowComponent';
+import React, { useEffect, useState } from 'react'
+import ProjectAccordion from './ProjectAccordion'
 
-function Projects() {
-    return (
-        <PulseRowComponent />  
-    )
+
+const Projects = () => {
+  return (
+      <ProjectAccordion gapX="gap-x-6"/>
+  )
 }
 
-export default Projects;
+export default Projects

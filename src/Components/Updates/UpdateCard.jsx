@@ -52,7 +52,7 @@ const UpdateCard = ({ update }) => {
                 <div class="h-full w-1 bg-indigo-200 pointer-events-none"></div>
             </div>
             <div class="flex-shrink-0 w-20 h-6 rounded-full mt-10 sm:mt-0 inline-flex items-center justify-center bg-blue-700 text-white relative z-10 title-font font-medium text-sm">{update.fields.created_simple}</div>
-            <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row bg-indigo-50 rounded-lg border border-full border-indigo-400 py-4 mx-3">
+            <div class="flex-grow md:pl-8 pl-6 flex sm:items-center items-start flex-col sm:flex-row bg-white rounded-lg border border-full border-indigo-400 py-4 mx-3">
                 <div class="flex-shrink-0 w-20 h-20 bg-indigo-100 text-indigo-700 rounded-full inline-flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d={update_icon} />
