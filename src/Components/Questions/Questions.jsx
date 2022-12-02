@@ -41,7 +41,10 @@ const Questions = () => {
                 <div class="container px-5 mx-auto flex flex-wrap">
                     <>
                         {questions.map((question) => (
-                            <QuestionsCard key={question.id} question={question} />
+                            <QuestionsCard
+                                key={question.id}
+                                question={question}
+                            />
                         ))}
                     </>
                 </div>
