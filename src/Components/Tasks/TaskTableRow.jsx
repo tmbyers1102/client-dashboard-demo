@@ -7,8 +7,8 @@ import {
 } from "@tremor/react";
 
 const TaskTableRow = ({task}) => {
+    
     var status_color = []
-
     {if (task.fields.Status == 'Todo') {
         status_color= 'rose'
     } else if (task.fields.Status == 'Done') {
@@ -23,9 +23,11 @@ const TaskTableRow = ({task}) => {
         <>
             <TableRow>
                 <TableCell>{task.fields.Name}</TableCell>
-                <TableCell>
-                    <Text>{task.fields.related_project_string}</Text>
-                </TableCell>
+                    <TableCell>
+                        <button className="bg-blue-50 px-3 py-1 text-xs rounded-full border border-full border-blue-600">
+                            {task.fields.related_project_string}
+                        </button>
+                    </TableCell>
                 <TableCell>
                     <Text>{task.fields.date_completed}</Text>
                 </TableCell>

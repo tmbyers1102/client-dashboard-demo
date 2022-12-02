@@ -59,7 +59,7 @@ const UpdateCard = ({ update }) => {
                     </svg>
                 </div>
                 <div class="container">
-                    <div class="flex items-center h-full">
+                    <div class="flex justify-between items-center h-full">
                         <div class="w-2/3 sm:pl-6 mt-6 sm:mt-0">
                             <h2 class="font-medium title-font text-gray-900 mb-1 text-xl">{update.fields.update}</h2>
                             <div class="mt-3">
@@ -70,7 +70,7 @@ const UpdateCard = ({ update }) => {
                             </p>
                             
                         </div>
-                        <div class="flex px-3">
+                        <div class="px-6">
                             <UpdateScreenshot />
                         </div>
                     </div>
