@@ -19,14 +19,27 @@ const TaskTableRow = ({task}) => {
         status_color= 'zinc'
     }}
 
+    var project_color = []
+    {if (task.fields.related_project_string == 'Standard Client Onboarding') {
+        project_color= 'bg-orange-100'
+    } else if (task.fields.related_project_string == 'Product Noun Optimizations') {
+        project_color= 'bg-indigo-100'
+    } else {
+        project_color= 'bg-slate-100'
+    }}
+
     return (
         <>
             <TableRow>
                 <TableCell>{task.fields.Name}</TableCell>
                     <TableCell>
-                        <button className="bg-blue-50 px-3 py-1 text-xs rounded-full border border-full border-blue-600">
-                            {task.fields.related_project_string}
-                        </button>
+                        { task.fields.related_project_string ? (
+                            <button className={`${project_color} px-3 py-1 text-xs rounded-full border border-full border-blue-600`}>
+                                {task.fields.related_project_string}
+                            </button>
+                        ) : (
+                            null
+                        )}
                     </TableCell>
                 <TableCell>
                     <Text>{task.fields.date_completed}</Text>
