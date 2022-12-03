@@ -6,12 +6,15 @@ const QuestionsCard = ({question}) => {
 
     var answer_value = []
     var status_color = []
+    var answer_bg_color = []
     {if (question.fields.Answer) {
         answer_value = question.fields.Answer
         status_color = 'bg-green-100'
+        answer_bg_color = 'bg-blue-200'
     } else {
         answer_value = 'Answer Pending... We will alert you when the answer to this question is available!'
         status_color = 'bg-gray-100'
+        answer_bg_color = 'bg-slate-50'
     }}
 
     return (
@@ -37,8 +40,7 @@ const QuestionsCard = ({question}) => {
                 </div>
             </div>
             <div className='w-full items-end flex mb-16 mt-3'>
-
-                <div class="justify-self-end rounded-lg h-full bg-blue-100 p-8 mt-3 w-full ml-96">
+                <div class={`justify-self-end rounded-lg h-full ${answer_bg_color} p-8 mt-3 w-full ml-96`}>
                     <div class="flex items-center mb-3 justify-end">
                         <h2 class="text-gray-900 text-lg title-font font-medium">Feedonomics Answer</h2>
                         <div class="w-12 h-12 ml-3 inline-flex items-center justify-center rounded-full bg-blue-500 text-white flex-shrink-0">
