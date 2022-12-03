@@ -31,7 +31,7 @@ const Questions = () => {
 
     if (loading) {
         return (
-            <div class="flex mt-6 pt-6 w-full mx-auto">
+            <div class="flex mt-6 pt-6 w-full h-96 mx-auto">
                 <SpinnerComponent />  
             </div>
         )

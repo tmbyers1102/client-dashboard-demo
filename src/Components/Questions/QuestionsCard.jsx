@@ -1,8 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import * as statusIcons from '../Objects/StatusIcons';
+import QuestionCardAnswerLinkButton from './QuestionCardAnswerLinkButton';
 
 
 const QuestionsCard = ({question}) => {
+    // const [showAnswerLink, setShowAnswerLink] = useState(true)
+    // useEffect(() => {
+    //     if(question.fields.answer_article_link) {
+    //         setShowAnswerLink(true)
+    //     }
+    // })
+
+
 
     var answer_value = []
     var status_color = []
@@ -16,6 +25,8 @@ const QuestionsCard = ({question}) => {
         status_color = 'bg-gray-100'
         answer_bg_color = 'bg-slate-50'
     }}
+
+    var answer_article_link = question.fields.answer_article_link
 
     return (
         <>
@@ -37,6 +48,9 @@ const QuestionsCard = ({question}) => {
                     <p class="leading-relaxed text-base">
                         {question.fields.raw_question}
                     </p>
+                    <p>
+                        hahahaha :
+                    </p>
                 </div>
             </div>
             <div className='w-full items-end flex mb-16 mt-3'>
@@ -53,6 +67,7 @@ const QuestionsCard = ({question}) => {
                         <p class="flex justify-end leading-relaxed text-base">
                         {answer_value}
                         </p>
+                        { question.fields.answer_article_link ? <QuestionCardAnswerLinkButton key={question.id} question={question}/> : null }
                     </div>
                 </div>
             </div>
