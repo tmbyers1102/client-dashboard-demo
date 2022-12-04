@@ -3,48 +3,59 @@ import {
     Badge,
 } from "@tremor/react";
 import * as statusIcons from '../Objects/StatusIcons';
+import * as screenshotURL from '../Objects/Images/UpdateScreenshotFallbacks'
 import UpdateScreenshot from './UpdateScreenshot';
 
 const UpdateCard = ({ update }) => {
     var update_color = []
     var update_icon = []
+    var ss_link = []
 
     {if (update.fields.update_type == 'Promotion Complete') {
         update_color= 'orange'
         // bar chart
         update_icon = statusIcons.BAR_CHART_ICON
+        ss_link = screenshotURL.GOOGLE_PROMO_TAG
     } else if (update.fields.update_type == 'Question Answered') {
         update_color= 'lime'
         //Question mark
         update_icon = statusIcons.QUESTION_ICON
+        ss_link = screenshotURL.META_COMMERCE_MANAGER
     } else if (update.fields.update_type == 'Question Posted') {
         update_color= 'sky'
         // question dark
         update_icon = statusIcons.QUESTION_ICON
+        ss_link = screenshotURL.FDX_WHEEL
     } else if (update.fields.update_type == 'Task Completed') {
         update_color= 'emerald'
         // check shield
         update_icon = statusIcons.CHECK_SHEILD_ICON
+        ss_link = screenshotURL.FDX_WHEEL
     } else if (update.fields.update_type == 'Task Delayed') {
         update_color= 'amber'
         // exclaim
         update_icon = statusIcons.EXCLAIM_ICON
+        ss_link = screenshotURL.FDX_WHEEL
     } else if (update.fields.update_type == 'New Task Created') {
         update_color= 'violet'
         // rocket
         update_icon = statusIcons.ROCKET_ICON
+        ss_link = screenshotURL.FDX_WHEEL
     } else if (update.fields.update_type == 'New Project Created') {
         update_color= 'teal'
         // bolt
         update_icon = statusIcons.BOLT_ICON
+        ss_link = screenshotURL.FDX_WHEEL
     } else if (update.fields.update_type == 'Project Completed') {
         update_color= 'fuchia'
         // trophy
         update_icon = statusIcons.TROPHY_ICON
+        ss_link = screenshotURL.FDX_WHEEL
     } else {
         update_color= 'zinc'
         // smile
         update_icon = statusIcons.SMILE_ICON
+        ss_link = screenshotURL.GOOGLE_PROMO_TAG
     }}
     return (
         <div class="flex relative pt-0 pb-8 sm:items-center md:w-2/3 lg:w-full mx-auto">
@@ -71,7 +82,7 @@ const UpdateCard = ({ update }) => {
                             
                         </div>
                         <div class="px-6">
-                            <UpdateScreenshot />
+                            <UpdateScreenshot key={update.id} theUpdate={update} update_type={update.fields.update_type} ss_link={ss_link}/>
                         </div>
                     </div>
                 </div>

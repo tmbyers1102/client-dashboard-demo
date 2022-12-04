@@ -48,9 +48,6 @@ const QuestionsCard = ({question}) => {
                     <p class="leading-relaxed text-base">
                         {question.fields.raw_question}
                     </p>
-                    <p>
-                        hahahaha :
-                    </p>
                 </div>
             </div>
             <div className='w-full items-end flex mb-16 mt-3'>
