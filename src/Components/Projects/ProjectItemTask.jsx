@@ -59,9 +59,6 @@ const ProjectItemTask = ({ projectItemTask }) => {
                             <p class="text-gray-800 text-xs ml-2">
                                 {projectItemTask.fields.due_date}
                             </p>
-                            <p class="text-gray-800 text-xs ml-2">
-                                {proj_item_task_as_string}
-                            </p>
                         </div>
                     </div>
                     <div className='col-span-1'>
@@ -127,7 +124,7 @@ const ProjectItemTask = ({ projectItemTask }) => {
                                         <table class="table-auto w-full mr-6">
                                             <tbody>
                                                 <tr className='border-b'>
-                                                    <td>Due Date:</td>
+                                                    <td className='w-24'>Due Date:</td>
                                                     <td>{projectItemTask.fields.due_date}</td>
                                                 </tr>
                                                 <tr className='border-b'>
