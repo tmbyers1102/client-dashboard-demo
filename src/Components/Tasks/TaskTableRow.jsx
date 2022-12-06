@@ -21,11 +21,11 @@ const TaskTableRow = ({task}) => {
 
     var project_color = []
     {if (task.fields.related_project_string == 'Standard Client Onboarding') {
-        project_color= 'bg-orange-100'
+        project_color= 'orange'
     } else if (task.fields.related_project_string == 'Product Noun Optimizations') {
-        project_color= 'bg-indigo-100'
+        project_color= 'indigo'
     } else {
-        project_color= 'bg-slate-100'
+        project_color= 'slate'
     }}
 
     return (
@@ -34,21 +34,18 @@ const TaskTableRow = ({task}) => {
                 <TableCell>{task.fields.Name}</TableCell>
                     <TableCell>
                         { task.fields.related_project_string ? (
-                            <button className={`${project_color} px-3 py-1 text-xs rounded-full border border-full border-blue-600`}>
+                            <button className={`bg-${project_color}-100 px-3 py-1 text-xs rounded-full border border-full border-${project_color}-300`}>
                                 {task.fields.related_project_string}
                             </button>
                         ) : (
                             null
-                        )}
+                        ) }
                     </TableCell>
                 <TableCell>
                     <Text>{task.fields.date_completed}</Text>
                 </TableCell>
                 <TableCell>
-                <Badge
-                    text={task.fields.Status}
-                    color={status_color}
-                />
+                <Badge text={task.fields.Status} color={status_color} />
                 </TableCell>
             </TableRow>
         </>
@@ -56,3 +53,5 @@ const TaskTableRow = ({task}) => {
 }
 
 export default TaskTableRow;
+
+// contact DMV with cert of death to get the title transferred to dad

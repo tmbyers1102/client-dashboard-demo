@@ -16,7 +16,7 @@ const Update = () => {
       }, [updates])
 
     useEffect(() => {
-        base("Client Updates")
+        base("client_updates")
           .select({ 
             view: "Grid view",
             filterByFormula: `AND({client}='Made Up Lamps',{client_visible})`,
