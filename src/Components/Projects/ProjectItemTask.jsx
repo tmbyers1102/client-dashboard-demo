@@ -9,19 +9,14 @@ const base = new Airtable({ apiKey: 'keydxzcJdUXUCRGYy' }).base('appsc6BvDzAQRtj
 
 const ProjectItemTask = ({ projectItemTask }) => {
     var status_color = []
-    var other_status_color = []
     {if (projectItemTask.fields.Status == 'Done') {
         status_color = 'green'
-        other_status_color = 'green'
     } else if (projectItemTask.fields.Status == 'In progress') {
         status_color = 'cyan'
-        other_status_color = 'cyan'
     } else if (projectItemTask.fields.Status == 'Client Hold') {
         status_color = 'slate'
-        other_status_color = 'slate'
     } else {
         status_color = 'red'
-        other_status_color = 'red'
     }}
     
     const [open, setOpen] = useState(false)
@@ -64,7 +59,7 @@ const ProjectItemTask = ({ projectItemTask }) => {
                     <div className='col-span-1'>
                         <button
                             type="button"
-                            class={`px-3 py-1 bg-${status_color}-100 text-${status_color}-600 text-xs leading-tight rounded-full shadow-md hover:bg-${other_status_color}-300 hover:shadow-lg transition duration-150 ease-in-out`}
+                            class={`px-3 py-1 bg-${status_color}-100 text-${status_color}-600 text-xs leading-tight rounded-full shadow-md hover:bg-${status_color}-300 hover:shadow-lg transition duration-150 ease-in-out`}
                             onClick={() => setOpen(true)}
                             ref={cancelButtonRef}
                         >
@@ -119,27 +114,23 @@ const ProjectItemTask = ({ projectItemTask }) => {
                                             {projectItemTask.fields.Status}
                                         </button>
                                     </div>
-                                    <div className="px-4 pt-5 pb-4 sm:p-6 sm:pb-4 grid grid-cols-5">
-                                        <div className="sm:flex sm:items-start col-span-3 border-r mr-2">
-                                        <table class="table-auto w-full mr-6">
-                                            <tbody>
-                                                <tr className='border-b'>
-                                                    <td className='w-24'>Due Date:</td>
-                                                    <td>{projectItemTask.fields.due_date}</td>
-                                                </tr>
-                                                <tr className='border-b'>
-                                                    <td>ggg</td>
-                                                    <td>Malcolm Lockyer</td>
-                                                </tr>
-                                                <tr className='border-b'>
-                                                    <td>Notes</td>
-                                                    <td>{projectItemTask.fields.Notes}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                    <div className="px-4 pt-5 pb-4 sm:p-6 sm:pb-4 grid grid-cols-4">
+                                        <div className="flex items-start col-span-2 border-r mr-2">
+                                            <table class="table-auto w-full mr-6">
+                                                <tbody className=''>
+                                                    <tr className='border-b'>
+                                                        <td className='w-24'>Due Date:</td>
+                                                        <td>{projectItemTask.fields.due_date}</td>
+                                                    </tr>
+                                                    <tr className=''>
+                                                        <td>Notes</td>
+                                                        <td className=''>{projectItemTask.fields.Notes}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                         <div className="sm:flex sm:items-start col-span-2">
-                                            <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+                                            <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
                                                 <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
                                                     Updates
                                                 </Dialog.Title>
