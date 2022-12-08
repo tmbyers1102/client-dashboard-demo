@@ -64,7 +64,7 @@ const TaskTable = () => {
             </Card>
           </>
         )
-      }
+    }
 }
 
 export default TaskTable;
