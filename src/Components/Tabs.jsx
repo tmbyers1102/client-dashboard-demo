@@ -12,6 +12,7 @@ import Projects from './Projects/Projects';
 import Questions from './Questions/Questions';
 import Videos from './Videos/Videos';
 import Promotions from './Promotions/Promotions';
+import Docs from './Docs/Docs';
 
 function Tabs() {
     const [selectedView, setSelectedView] = useState(1);
@@ -30,7 +31,8 @@ function Tabs() {
                 <Tab value={ 3 } text="Projects" />
                 <Tab value={ 4 } text="Questions" />
                 <Tab value={ 5 } text="Videos" />
-                <Tab value={ 6 } text="Promotions" />
+                <Tab value={ 6 } text="Docs" />
+                <Tab value={ 7 } text="Promotions" />
             </TabList>
 
             { selectedView === 1 ? (
@@ -57,6 +59,12 @@ function Tabs() {
                 <Block marginTop="mt-6">
                     <Card>
                         <Videos />
+                    </Card>
+                </Block>
+            ) : selectedView === 6 ? (
+                <Block marginTop="mt-6">
+                    <Card>
+                        <Docs />
                     </Card>
                 </Block>
             ) : (

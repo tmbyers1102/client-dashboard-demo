@@ -45,7 +45,7 @@ const ProjectAccordionRow = ({ project }) => {
             <div class="flex w-full items-center mx-3 gap-9">
 
                 <h3 class="w-96 mx-3 text-left">{project.fields.Name}</h3>
-                <ProgressBar showAnimation={true} percentageValue={random_number} color={status_color} marginTop="mt-2" tooltip={random_number+'% Complete'} />
+                <ProgressBar  showAnimation={true} percentageValue={random_number} color={status_color} marginTop="mt-2" tooltip={random_number+'% Complete'} />
                 <Badge
                     text={project.fields.Status}
                     color={status_color}
