@@ -79,7 +79,7 @@ const Docs = () => {
     } else {
         return (
             <section class="text-gray-600 body-font">
-                <div class="py-2 w-full">
+                <div class="w-full">
                     <div class="flex flex-wrap w-full">
                         {docs.map((doc) => (
                             <DocCard    
