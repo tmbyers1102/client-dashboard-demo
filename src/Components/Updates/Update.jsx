@@ -38,7 +38,7 @@ const Update = () => {
     } else {
         return (
             <section class="text-gray-600 body-font">
-                <div class="container px-5 mx-auto flex flex-wrap">
+                <div class="container px-1 mx-auto flex flex-wrap">
                     <>
                         {updates.map((update) => (
                             <UpdateCard key={update.id} update={update} />
