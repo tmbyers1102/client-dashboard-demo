@@ -27,7 +27,7 @@ const VideoCard = ({video}) => {
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen
-                    className='pointer-events-none'
+                    className='md:pointer-events-none'
                 ></iframe>
                 {/* <div className='w-full h-32 bg-red-300 m-3 p-3'></div> */}
             </a>

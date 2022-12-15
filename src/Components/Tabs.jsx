@@ -29,7 +29,7 @@ function Tabs() {
                     </svg>
                     <Title>Made Up Lamps</Title>
                 </div>
-                <div className=''>
+                <div className='md:hidden'>
                     <Dropdown
                         placeholder="Select..."
                         defaultValue={ 1 }
