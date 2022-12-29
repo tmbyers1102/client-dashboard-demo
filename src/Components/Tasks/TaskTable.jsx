@@ -44,22 +44,22 @@ const TaskTable = () => {
           <>
             <Card>
                 <Table marginTop="mt-0">
-                <TableHead>
-                    <TableRow>
-                        <TableHeaderCell>Task</TableHeaderCell>
-                        <TableHeaderCell>Related Project</TableHeaderCell>
-                        <TableHeaderCell>Due Date</TableHeaderCell>
-                        <TableHeaderCell>Status</TableHeaderCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {tasks.map((task) => (
-                        <TaskTableRow
-                            key={task.id}
-                            task={task}
-                        />
-                    ))}
-                </TableBody>
+                    <TableHead>
+                        <TableRow>
+                            <TableHeaderCell>Task</TableHeaderCell>
+                            <TableHeaderCell>Related Project</TableHeaderCell>
+                            <TableHeaderCell>Due Date</TableHeaderCell>
+                            <TableHeaderCell>Status</TableHeaderCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {tasks.map((task) => (
+                            <TaskTableRow
+                                key={task.id}
+                                task={task}
+                            />
+                        ))}
+                    </TableBody>
                 </Table>
             </Card>
           </>

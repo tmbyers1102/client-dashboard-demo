@@ -90,7 +90,7 @@ const UpdateCard = ({ update }) => {
                         </div>
                     <div class="hidden lg:flex justify-between items-center h-full">
                         <div class="">
-                            <h2 class="font-light lg:font-medium text-gray-900 mb-1 text-sm md:text-lg">{update.fields.update}</h2>
+                            <h2 class="font-light lg:font-medium text-gray-900 mb-1 text-sm md:text-md">{update.fields.update}</h2>
                             <div class="text-xs mt-3">
                                 <Badge color={update_color} text={update.fields.update_type}/>
                             </div>

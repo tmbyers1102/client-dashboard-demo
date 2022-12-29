@@ -13,7 +13,7 @@ const UpdateScreenshot = ({ theUpdate, update_type, ss_link }) => {
     // }}
 
     return (
-        <div class="h-full w-48 border border-indigo-800 rounded-lg overflow-hidden bg-indigo-100">
+        <div class="h-24 2xl:h-full w-24 2xl:w-48 border border-indigo-800 rounded-lg overflow-hidden bg-indigo-100">
             <img class="lg:h-36 md:h-24 w-full object-cover object-center" src={ss_link} alt="blog" />
         </div>
     )

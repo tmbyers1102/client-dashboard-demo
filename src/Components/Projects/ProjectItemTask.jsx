@@ -69,6 +69,7 @@ const ProjectItemTask = ({ projectItemTask }) => {
                 </div>
             </div>
             {/* popup stuff */}
+            {/* <TaskModal open={open} key={projectItemTask.id} projectItemTask={projectItemTask} taskUpdates={taskUpdates} /> */}
             <Transition.Root show={open} as={Fragment}>
                 <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
                     <Transition.Child

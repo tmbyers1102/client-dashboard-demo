@@ -31,7 +31,7 @@ const ProjectAccordionRow = ({ project }) => {
     var status_color = []
 
     {if (project.fields.Status == 'Not Started') {
-        status_color= 'slate'
+        status_color= 'gray'
     } else if (project.fields.Status == 'In progress') {
         status_color= 'green'
     } else {
@@ -42,22 +42,18 @@ const ProjectAccordionRow = ({ project }) => {
         <Accordion>
         <AccordionHeader>
             <>
-            <div class="flex w-full items-center mx-3 gap-9">
-
-                <h3 class="w-96 mx-3 text-left">{project.fields.Name}</h3>
-                <ProgressBar  showAnimation={true} percentageValue={random_number} color={status_color} marginTop="mt-2" tooltip={random_number+'% Complete'} />
-                <Badge
-                    text={project.fields.Status}
-                    color={status_color}
-                />
-            </div>
+                <div class="md:flex w-full items-center gap-1">
+                    <h3 class="w-96 mb-3 md:mb-0">{project.fields.Name}</h3>
+                    <ProgressBar showAnimation={true} percentageValue={random_number} color={status_color} marginTop="mt-0" tooltip={random_number+'% Complete'} />
+                    <button className={`bg-${status_color}-100 rounded-full px-3 text-sm whitespace-nowrap ml-12 mt-3 md:mt-0`}>{project.fields.Status}</button>
+                </div>
             </>
         </AccordionHeader>
         <AccordionBody>
-            <div class="flex">
+            <div class="md:flex">
                 {projectItems.map((projectItem) => {
                     return projectItem.fields.associated_project_record_id_string === project.fields.project_record_id ? (
-                    <div class="flex m-3">
+                    <div class="flex md:m-3">
                         <ProjectItem key={projectItem.id} projectItem={projectItem}/>
                     </div>
                     ) : (
