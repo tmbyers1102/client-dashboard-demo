@@ -109,26 +109,29 @@ const TaskTableRow = ({task}) => {
                                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                             >
                                 <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-6xl">
-                                    <div className="bg-gray-50 px-4 py-3 sm:flex sm:px-6 border-b items-center justify-between">
-                                        <div className='flex items-center'>
-                                            <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
-                                                <RocketLaunchIcon className="h-6 w-6 text-blue-600" aria-hidden="true" />
+                                    <div className="bg-blue-50 px-4 py-3 md:flex md:px-6 border-b items-center justify-between">
+                                        <div className='flex items-center justify-between w-full'>
+                                            <div className='flex items-center'>
+
+                                                <div className="md:mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
+                                                    <RocketLaunchIcon className="h-6 w-6 text-blue-600" aria-hidden="true" />
+                                                </div>
+                                                <div className="text-center ml-4 md:text-left">
+                                                    <Dialog.Title as="h3" className="text-sm md:text-lg font-medium text-gray-900">
+                                                        {task.fields.Name}
+                                                    </Dialog.Title>
+                                                </div>
                                             </div>
-                                            <div className="text-center sm:ml-4 sm:text-left">
-                                                <Dialog.Title as="h3" className="text-lg font-medium leading-6 text-gray-900">
-                                                    {task.fields.Name}
-                                                </Dialog.Title>
-                                            </div>
+                                            <button
+                                                disabled
+                                                type="button"
+                                                class={`px-3 py-1 bg-${status_color}-100 border border-full border-gray-300 text-md leading-tight rounded-full`}
+                                            >
+                                                {task.fields.Status}
+                                            </button>
                                         </div>
-                                        <button
-                                            disabled
-                                            type="button"
-                                            class={`px-3 py-1 bg-${status_color}-100 border border-full border-gray-300 text-md leading-tight rounded-full`}
-                                        >
-                                            {task.fields.Status}
-                                        </button>
                                     </div>
-                                    <div className="px-4 pt-5 pb-4 sm:p-6 sm:pb-4 grid grid-cols-4">
+                                    <div className="px-4 pt-5 pb-4 sm:p-6 sm:pb-4 grid grid-cols-1 md:grid-cols-4">
                                         <div className="flex items-start col-span-2 border-r mr-2">
                                             <table class="table-auto w-full mr-6">
                                                 <tbody className=''>
