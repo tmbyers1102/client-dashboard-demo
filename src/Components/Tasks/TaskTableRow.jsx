@@ -73,11 +73,14 @@ const TaskTableRow = ({task}) => {
                     {/* <Badge text={task.fields.Status} color={status_color} /> */}
                     <button
                             type="button"
-                            class={`px-3 py-1 bg-${status_color}-100 text-${status_color}-600 text-xs leading-tight rounded-full shadow-md hover:shadow-xl transition duration-150 ease-in-out`}
+                            class={`flex px-3 py-1 bg-${status_color}-100 text-${status_color}-600 text-xs leading-tight rounded-full shadow-md hover:shadow-xl transition duration-150 ease-in-out`}
                             onClick={() => setOpen(true)}
                             ref={cancelButtonRef}
                     >
                         {task.fields.Status}
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 h-3 ml-3">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                        </svg>
                     </button>
                 </TableCell>
             </TableRow>

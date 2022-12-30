@@ -46,25 +46,28 @@ const ProjectItemTask = ({ projectItemTask }) => {
     return (
         <>
             <div class="flex justify-center">
-                <div class="grid grid-cols-6 gap-2 p-1.5 rounded-md bg-blue-200 min-w-full mt-2">
-                    <div className='col-span-5'>
-                        <h5 class="text-gray-900 text-sm leading-tight w-full mb-2">{projectItemTask.fields.Name}</h5>
+                <div class=" p-1 rounded-md bg-blue-200 min-w-full mt-2">
+                    <div className='flex'>
+                        <h5 class="text-gray-900 text-xs leading-tight w-full mb-2">{projectItemTask.fields.Name}</h5>
+                        <button
+                            type="button"
+                            class={`flex justify-self-end px-3 py-1 bg-${status_color}-100 text-${status_color}-600 text-xs leading-tight rounded-full shadow-md hover:bg-${status_color}-300 hover:shadow-lg transition duration-150 ease-in-out`}
+                            onClick={() => setOpen(true)}
+                            ref={cancelButtonRef}
+                        >
+                            {projectItemTask.fields.Status}
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 h-3 ml-3">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                            </svg>
+                        </button>
+                    </div>
                         <div className='flex'>
                             <h5 class="text-gray-400 text-xs leading-tight font-medium">Scheduled Work Date:</h5>
                             <p class="text-gray-800 text-xs ml-2">
                                 {projectItemTask.fields.due_date}
                             </p>
                         </div>
-                    </div>
-                    <div className='col-span-1'>
-                        <button
-                            type="button"
-                            class={`px-3 py-1 bg-${status_color}-100 text-${status_color}-600 text-xs leading-tight rounded-full shadow-md hover:bg-${status_color}-300 hover:shadow-lg transition duration-150 ease-in-out`}
-                            onClick={() => setOpen(true)}
-                            ref={cancelButtonRef}
-                        >
-                            {projectItemTask.fields.Status}
-                        </button>
+                    <div className='bg-yellow-500'>
                     </div>
                 </div>
             </div>

@@ -76,44 +76,52 @@ const ProjectItem = ({ projectItem }) => {
         return (
             <>
 
-            <div class="flex justify-center">
-                <div class="grid grid-cols-6 gap-2 content-start p-3 rounded-md shadow-lg bg-blue-50 min-w-full mt-2 border">
-                    <div className='col-span-4 h-20'>
-                        <h5 class="text-gray-900 text-sm leading-tight w-full mb-2">{projectItem.fields.raw_name}</h5>
-                        <div className='flex'>
-                            <h5 class="text-gray-400 text-xs leading-tight font-medium">Start Date:</h5>
-                            <p class="text-gray-800 text-xs ml-2">
-                              {projectItem.fields.start_date}
-                            </p>
+                <div class="flex justify-center w-96">
+                    <div class="content-start p-3 rounded-md shadow-lg bg-blue-50 min-w-full mt-2 border">
+                        <div className=''>
+                            <div className='flex w-full justify-items-end'>
+                                <h5 class="text-gray-900 text-sm leading-tight w-full mb-2">{projectItem.fields.raw_name}</h5>
+                                <button
+                                    type="button"
+                                    class={`px-2 py-1 bg-${status_color}-100 text-gray-600 text-xs leading-tight rounded-full shadow-md hover:bg-${status_color}-400 hover:shadow-lg transition duration-150 ease-in-out whitespace-nowrap`}
+                                >
+                                    {projectItem.fields.Status}
+                                </button>
+                            </div>
+                            <div className='flex justify-between my-3'>
+                                <div className='flex'>
+                                    <h5 class="text-gray-400 text-xs leading-tight font-medium">Start Date:</h5>
+                                    <p class="text-gray-800 text-xs ml-2">
+                                        {projectItem.fields.start_date}
+                                    </p>
+                                </div>
+                                <div className='flex'>
+                                    <h5 class="text-gray-400 text-xs leading-tight font-medium">End Date:</h5>
+                                    <p class="text-gray-800 text-xs ml-2">
+                                        {projectItem.fields.completion_date}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className='h-20'>
+                                <h5 class="text-gray-400 text-xs leading-tight font-medium ml-1">Notes</h5>
+                                <p class="text-gray-800 text-xs ml-2">
+                                    {projectItem.fields.Notes}
+                                </p>
+                            </div>
                         </div>
-                        <div className='flex'>
-                            <h5 class="text-gray-400 text-xs leading-tight font-medium">End Date:</h5>
-                            <p class="text-gray-800 text-xs ml-2">
-                                {projectItem.fields.completion_date}
-                            </p>
+                        <div className='col-span-6'>
+                        {projectItemTasks.map((projectItemTask) => {
+                            return projectItem.id === projectItemTask.fields.associated_project_item_record_id_string ? (
+                            <>
+                                <ProjectItemTask key={projectItemTask.id} projectItemTask={projectItemTask} />
+                            </>
+                            ) : (
+                                null
+                            )
+                        })}
                         </div>
-                    </div>
-                    <div className='col-span-2 w-full grid justify-items-end max-h-3'>
-                        <button
-                            type="button"
-                            class={`px-2 py-1 bg-${status_color}-100 text-gray-600 text-xs leading-tight rounded-full shadow-md hover:bg-${status_color}-400 hover:shadow-lg transition duration-150 ease-in-out`}
-                        >
-                            {projectItem.fields.Status}
-                        </button>
-                    </div>
-                    <div className='col-span-6'>
-                    {projectItemTasks.map((projectItemTask) => {
-                        return projectItem.id === projectItemTask.fields.associated_project_item_record_id_string ? (
-                        <>
-                            <ProjectItemTask key={projectItemTask.id} projectItemTask={projectItemTask} />
-                        </>
-                        ) : (
-                            null
-                        )
-                    })}
                     </div>
                 </div>
-            </div>
             {/* <div class="">
                 <Card maxWidth="max-w-md">
                     <Bold>{projectItem.fields.raw_name}</Bold>
