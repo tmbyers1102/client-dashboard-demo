@@ -61,13 +61,11 @@ const ProjectItemTask = ({ projectItemTask }) => {
                             </svg>
                         </button>
                     </div>
-                        <div className='flex'>
-                            <h5 class="text-gray-400 text-xs leading-tight font-medium">Scheduled Work Date:</h5>
-                            <p class="text-gray-800 text-xs ml-2">
-                                {projectItemTask.fields.due_date}
-                            </p>
-                        </div>
-                    <div className='bg-yellow-500'>
+                    <div className='flex'>
+                        <h5 class="text-gray-400 text-xs leading-tight font-medium">Scheduled Work Date:</h5>
+                        <p class="text-gray-800 text-xs ml-2">
+                            {projectItemTask.fields.due_date}
+                        </p>
                     </div>
                 </div>
             </div>
