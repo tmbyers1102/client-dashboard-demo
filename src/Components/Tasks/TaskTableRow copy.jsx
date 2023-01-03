@@ -17,19 +17,14 @@ const TaskTableRow = ({task}) => {
     const abr_due_date = due_date.substring(due_date.length - 5)
     
     var status_color = []
-    var status_color2 = []
     {if (task.fields.Status == 'Todo') {
         status_color= 'red'
-        status_color2= 'bg-red-200'
     } else if (task.fields.Status == 'Done') {
         status_color= 'green'
-        status_color2= 'bg-green-200'
     } else if (task.fields.Status == 'Stuck') {
         status_color= 'amber'
-        status_color2= 'bg-amber-200'
     } else {
         status_color= 'zinc'
-        status_color2= 'bg-zinc-200'
     }}
 
     var project_color = []
@@ -50,7 +45,6 @@ const TaskTableRow = ({task}) => {
           .select({ 
             view: "Grid view",
             filterByFormula: `AND({client}='Made Up Lamps', {client_visible})`,
-            //sort: [{field: 'due_date', direction: "desc"}]
           })
           .eachPage((records, fetchNextPage) => {
             console.log(records)
@@ -61,43 +55,10 @@ const TaskTableRow = ({task}) => {
 
     return (
         <>
-            {/* Mobile view */}
-            <div className='md:hidden'>
-                <div className="bg-white p-3 rounded-md shadow mb-1">
-                    <div className='border-b border-blue-200 flex justify-between m-1'>
-                        <h1>{task.fields.Name}</h1>
-                        <button
-                            className={`rounded-full px-2 py-1 ${status_color2} mb-3 text-xs`}
-                            onClick={() => setOpen(true)}
-                            ref={cancelButtonRef}
-                        >
-                            {task.fields.Status}
-                        </button>
-                    </div>
-                    <div className='flex justify-between mx-1'>
-                        <div>
-                            { task.fields.related_project_string ? (
-                                <>
-                                    <h3 className='text-xs text-gray-400'>Related Project</h3>
-                                    <button className='rounded-full px-2 border border-full px-3 my-3 text-xs bg-blue-100'>{task.fields.related_project_string}</button>
-                                </>
-                            ) : (
-                                null
-                            ) }
-                        </div>
-                        <div>
-                            <h3 className='text-xs text-gray-400'>Due Date</h3>
-                            <h3 className='text-md my-3'>{abr_due_date}</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/* desktop view */}
-            <tr className='hidden md:table-row bg-white hover:bg-blue-50'>
-                <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                    {task.fields.Name}
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+            {/* tremor table */}
+            <TableRow>
+                <TableCell>{task.fields.Name}</TableCell>
+                <TableCell>
                     { task.fields.related_project_string ? (
                         <button disabled className={`bg-${project_color}-100 px-3 py-1 text-xs rounded-full border border-full border-${project_color}-300`}>
                             {task.fields.related_project_string}
@@ -105,26 +66,25 @@ const TaskTableRow = ({task}) => {
                     ) : (
                         null
                     ) }
-                </td>
-                <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                    {abr_due_date}
-                </td>
-                <td className="py-4 text-sm font-medium whitespace-nowrap">
-                    <div className='flex justify-end mr-1'>
-                        <button
-                                type="button"
-                                class={`flex px-3 py-1 bg-${status_color}-100 text-${status_color}-600 text-xs leading-tight rounded-full shadow-md hover:shadow-xl transition duration-150 ease-in-out`}
-                                onClick={() => setOpen(true)}
-                                ref={cancelButtonRef}
-                        >
-                            {task.fields.Status}
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 h-3 ml-3">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
-                            </svg>
-                        </button>
-                    </div>
-                </td>
-            </tr>
+                </TableCell>
+                <TableCell>
+                    <Text>{abr_due_date}</Text>
+                </TableCell>
+                <TableCell>
+                    {/* <Badge text={task.fields.Status} color={status_color} /> */}
+                    <button
+                            type="button"
+                            class={`flex px-3 py-1 bg-${status_color}-100 text-${status_color}-600 text-xs leading-tight rounded-full shadow-md hover:shadow-xl transition duration-150 ease-in-out`}
+                            onClick={() => setOpen(true)}
+                            ref={cancelButtonRef}
+                    >
+                        {task.fields.Status}
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-3 h-3 ml-3">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+                        </svg>
+                    </button>
+                </TableCell>
+            </TableRow>
             
 
             {/* popup stuff */}
@@ -157,6 +117,7 @@ const TaskTableRow = ({task}) => {
                                     <div className="bg-blue-50 px-4 py-3 md:flex md:px-6 border-b items-center justify-between">
                                         <div className='flex items-center justify-between w-full'>
                                             <div className='flex items-center'>
+
                                                 <div className="md:mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
                                                     <RocketLaunchIcon className="h-6 w-6 text-blue-600" aria-hidden="true" />
                                                 </div>
@@ -233,4 +194,3 @@ const TaskTableRow = ({task}) => {
 
 export default TaskTableRow;
 
-// contact DMV with cert of death to get the title transferred to dad

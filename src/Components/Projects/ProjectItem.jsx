@@ -54,7 +54,6 @@ const ProjectItem = ({ projectItem }) => {
                 <Card maxWidth="max-w-md">
                     <Bold>{projectItem.fields.raw_name}</Bold>
                     <List marginTop="mt-2">
-
                         <ListItem spaceX="space-x-0">
                             <Subtitle>Status</Subtitle>
                             <Badge text={projectItem.fields.Status} color={status_color}/>
@@ -75,15 +74,14 @@ const ProjectItem = ({ projectItem }) => {
     } else {
         return (
             <>
-
-                <div class="flex justify-center w-96">
+                <div class="flex justify-center w-full h-full">
                     <div class="content-start p-3 rounded-md shadow-lg bg-blue-50 min-w-full mt-2 border">
                         <div className=''>
                             <div className='flex w-full justify-items-end'>
                                 <h5 class="text-gray-900 text-sm leading-tight w-full mb-2">{projectItem.fields.raw_name}</h5>
                                 <button
                                     type="button"
-                                    class={`px-2 py-1 bg-${status_color}-100 text-gray-600 text-xs leading-tight rounded-full shadow-md hover:bg-${status_color}-400 hover:shadow-lg transition duration-150 ease-in-out whitespace-nowrap`}
+                                    class={`px-2 py-1 bg-${status_color}-100 text-gray-600 border border-full border-gray-400 text-xs leading-tight rounded-full hover:bg-${status_color}-400 whitespace-nowrap`}
                                 >
                                     {projectItem.fields.Status}
                                 </button>

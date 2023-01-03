@@ -50,10 +50,10 @@ const ProjectAccordionRow = ({ project }) => {
             </>
         </AccordionHeader>
         <AccordionBody>
-            <div class="md:flex">
+            <div class="grid md:grid-cols-3 md:m-1 gap-3">
                 {projectItems.map((projectItem) => {
                     return projectItem.fields.associated_project_record_id_string === project.fields.project_record_id ? (
-                    <div class="grid md:m-1">
+                    <div class="">
                         <ProjectItem key={projectItem.id} projectItem={projectItem}/>
                     </div>
                     ) : (
